@@ -14,8 +14,10 @@ class BookActivity : AppCompatActivity() {
 
         val title = intent.getStringExtra("title")
         val author = intent.getStringExtra("author")
+        val description = intent.getStringExtra("description")
 
         binding.bookTitle.text = title
         binding.bookAuthor.text = author
+        binding.bookDescription.text = description
     }
 }
