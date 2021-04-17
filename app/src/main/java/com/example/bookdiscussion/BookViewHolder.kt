@@ -14,6 +14,9 @@ class BookViewHolder(private val binding: BookrowBinding) :
     var image_url : String = ""
     var author : String = ""
     var description : String = ""
+    var read : Boolean = false
+    var reading : Boolean = false
+    var wantToRead : Boolean = false
 
     init {
         binding.root.setOnClickListener {
@@ -23,6 +26,9 @@ class BookViewHolder(private val binding: BookrowBinding) :
             bookIntent.putExtra("image_url", image_url)
             bookIntent.putExtra("author", author)
             bookIntent.putExtra("description", description)
+            bookIntent.putExtra("read", read)
+            bookIntent.putExtra("reading", reading)
+            bookIntent.putExtra("wantToRead", wantToRead)
             c.startActivity(bookIntent)
         }
     }
