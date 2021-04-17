@@ -37,17 +37,20 @@ class MainActivity : AppCompatActivity() {
             adapter = bookAdapter
         }
 
-        jobNetwork = coroutineScope.launch {
-            viewModel.request("harry potter").forEach {
-                Log.d("API", it.key + " -> " + it.value.toString())
-            }
-        }
-
         viewModel.books.observe(
             this,
             Observer { booksList ->
                 bookAdapter.submitList(booksList.toList())
             }
         )
+
+        binding.searchButton.setOnClickListener {
+            jobNetwork = coroutineScope.launch {
+                viewModel.request(binding.searchText.text.toString()).forEach {
+                    Log.d("API", it.key + " -> " + it.value.toString())
+                }
+            }
+        }
+
     }
 }
