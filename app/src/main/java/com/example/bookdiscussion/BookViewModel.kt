@@ -13,6 +13,8 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
         BookDB.getInstance(application).bookDAO()
     )
 
+    val books = repository.books
+
     fun insert(book: Book) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.insert(book)
