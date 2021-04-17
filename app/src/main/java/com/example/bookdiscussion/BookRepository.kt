@@ -3,14 +3,16 @@ package com.example.bookdiscussion
 import androidx.annotation.WorkerThread
 
 class BookRepository(private val dao: BookDAO) {
-    @WorkerThread
-    suspend fun getAll() {
-        dao.getAll()
-    }
+    val books = dao.getAll()
 
     @WorkerThread
     suspend fun insert(book: Book) {
         dao.insert(book)
+    }
+
+    @WorkerThread
+    suspend fun update(book: Book) {
+        dao.update(book)
     }
 
     @WorkerThread

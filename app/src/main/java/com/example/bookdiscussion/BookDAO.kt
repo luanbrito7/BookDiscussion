@@ -1,5 +1,6 @@
 package com.example.bookdiscussion
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
@@ -10,6 +11,9 @@ interface BookDAO {
     @Delete
     suspend fun destroy(book: Book)
 
+    @Update
+    suspend fun update(book: Book)
+
     @Query("SELECT * FROM books ORDER BY title ASC")
-    suspend fun getAll() : List<Book>
+    fun getAll() : LiveData<List<Book>>
 }
