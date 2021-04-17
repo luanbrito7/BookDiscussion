@@ -17,6 +17,7 @@ class BookViewHolder(private val binding: BookrowBinding) :
     var read : Boolean = false
     var reading : Boolean = false
     var wantToRead : Boolean = false
+    var rate : Int = 0
 
     init {
         binding.root.setOnClickListener {
@@ -29,6 +30,7 @@ class BookViewHolder(private val binding: BookrowBinding) :
             bookIntent.putExtra("read", read)
             bookIntent.putExtra("reading", reading)
             bookIntent.putExtra("wantToRead", wantToRead)
+            bookIntent.putExtra("rate", rate)
             c.startActivity(bookIntent)
         }
     }
@@ -38,6 +40,10 @@ class BookViewHolder(private val binding: BookrowBinding) :
         image_url = book.image_url
         author = book.author
         description = book.description
+        read = book.read
+        reading = book.reading
+        wantToRead = book.wantToRead
+        rate = book.rate
 
         binding.title.text = title
         binding.author.text = author
