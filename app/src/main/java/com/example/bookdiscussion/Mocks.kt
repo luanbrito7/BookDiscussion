@@ -10,7 +10,8 @@ object Mocks {
             "Freud",
             false,
             false,
-            false
+            false,
+            4
         ),
         Book(
             "2",
@@ -20,7 +21,8 @@ object Mocks {
             "Freud",
             false,
             false,
-            false
+            false,
+            1
         ),
         Book(
             "3",
@@ -30,7 +32,8 @@ object Mocks {
             "Freud",
             false,
             false,
-            false
+            false,
+            5
         )
     )
 }
