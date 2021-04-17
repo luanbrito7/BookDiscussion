@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // viewModel.insert(Mocks.books[0]) this line is for testing
+
         val bookAdapter = BookAdapter(layoutInflater)
 
         val recyclerViewBooks = binding.recyclerView
