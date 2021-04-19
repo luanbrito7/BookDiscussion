@@ -27,27 +27,15 @@ class MainActivity : AppCompatActivity() {
 
         //viewModel.insert(Mocks.books[0]) //this line is for testing
 
-        val bookAdapter = BookAdapter(layoutInflater)
-
         val recyclerViewBooks = binding.recyclerView
-
-        recyclerViewBooks.apply {
-            layoutManager = LinearLayoutManager(applicationContext)
-            addItemDecoration(DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL))
-            adapter = bookAdapter
-        }
-
-        viewModel.books.observe(
-            this,
-            Observer { booksList ->
-                bookAdapter.submitList(booksList.toList())
-            }
-        )
 
         binding.searchButton.setOnClickListener {
             jobNetwork = coroutineScope.launch {
-                viewModel.request(binding.searchText.text.toString()).forEach {
-                    Log.d("API", it.key + " -> " + it.value.toString())
+                var books = viewModel.request(binding.searchText.text.toString())
+                recyclerViewBooks.apply {
+                    layoutManager = LinearLayoutManager(applicationContext)
+                    addItemDecoration(DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL))
+                    adapter = BookAdapter(books, layoutInflater)
                 }
             }
         }

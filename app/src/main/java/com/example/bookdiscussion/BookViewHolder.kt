@@ -47,6 +47,11 @@ class BookViewHolder(private val binding: BookrowBinding) :
 
         binding.title.text = title
         binding.author.text = author
-        Picasso.get().load(image_url).resize(100,300).into(binding.image);
+        if (image_url != "") {
+            if (image_url[4] != 's') {
+                image_url = image_url.replace("http", "https")
+            }
+            Picasso.get().load(image_url).resize(100,300).into(binding.image);
+        }
     }
 }
