@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.bookdiscussion.databinding.ActivityBookBinding
 
-class BookActivity : AppCompatActivity() {
+class  BookActivity : AppCompatActivity() {
     private lateinit var binding : ActivityBookBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

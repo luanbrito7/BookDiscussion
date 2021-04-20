@@ -1,6 +1,7 @@
 package com.example.bookdiscussion
 
 import android.R
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -16,8 +17,6 @@ import java.net.URL
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
-    private var jobNetwork : Job? = null
-    private val coroutineScope = CoroutineScope(Dispatchers.Main.immediate)
     private val viewModel : BookViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,17 +26,26 @@ class MainActivity : AppCompatActivity() {
 
         //viewModel.insert(Mocks.books[0]) //this line is for testing
 
+        val bookAdapter = BookArrayAdapter(layoutInflater)
+
         val recyclerViewBooks = binding.recyclerView
 
-        binding.searchButton.setOnClickListener {
-            jobNetwork = coroutineScope.launch {
-                var books = viewModel.request(binding.searchText.text.toString())
-                recyclerViewBooks.apply {
-                    layoutManager = LinearLayoutManager(applicationContext)
-                    addItemDecoration(DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL))
-                    adapter = BookAdapter(books, layoutInflater)
-                }
+        recyclerViewBooks.apply {
+            layoutManager = LinearLayoutManager(applicationContext)
+            addItemDecoration(DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL))
+            adapter = bookAdapter
+        }
+
+        viewModel.books.observe(
+            this,
+            Observer { booksList ->
+                bookAdapter.submitList(booksList.toList())
             }
+        )
+
+        binding.addButton.setOnClickListener {
+            val addBookIntent = Intent(this@MainActivity, AddBookActivity::class.java)
+            this@MainActivity.startActivity(addBookIntent)
         }
 
     }
