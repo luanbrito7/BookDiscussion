@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "650670736594",
+    "project_id": "bookdiscussion-5a972",
+    "storage_bucket": "bookdiscussion-5a972.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650670736594:android:f910d92c7e2b59ba33590b",
+        "android_client_info": {
+          "package_name": "com.example.bookdiscussion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "650670736594-btpj51e0va77pacuk55bcjumh5ici8vv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuyCT6Z_99YyDKCvpjrtDqkJ0uSa2prTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "650670736594-btpj51e0va77pacuk55bcjumh5ici8vv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
