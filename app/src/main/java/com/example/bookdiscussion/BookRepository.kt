@@ -20,6 +20,7 @@ class BookRepository(private val dao: BookDAO) {
         dao.destroy(book)
     }
 
+    @WorkerThread
     suspend fun getBookById(id: String) : Book {
         return dao.getBookById(id)
     }
