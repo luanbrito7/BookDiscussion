@@ -12,4 +12,16 @@ data class Book (
     val reading: Boolean, val read: Boolean,
     val wantToRead: Boolean, val rate: Int
 ){
+
+    override fun toString(): String {
+        return getStringAttr("id", id) +
+                getStringAttr("title", title) +
+                getStringAttr("desc", description) +
+                getStringAttr("image_url", image_url) +
+                getStringAttr("author", author)
+    }
+
+    fun getStringAttr(label: String, value: Any) : String {
+        return label + ": " + value.toString() + "\n"
+    }
 }

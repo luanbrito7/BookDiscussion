@@ -8,9 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bookdiscussion.databinding.BookrowBinding
 
 class BookAdapter (
+    private val books: MutableList<Book>,
     private val inflater: LayoutInflater) :
-    ListAdapter<Book, BookViewHolder>(bookDiffer)
+    RecyclerView.Adapter<BookViewHolder>()
 {
+
+    override fun getItemCount(): Int {
+        return books.size
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
         val binding = BookrowBinding.inflate(inflater, parent, false)
@@ -18,16 +23,6 @@ class BookAdapter (
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        holder.bindTo(getItem(position))
-    }
-
-    private object bookDiffer : DiffUtil.ItemCallback<Book>() {
-        override fun areItemsTheSame(oldItem: Book, newItem: Book): Boolean {
-            return oldItem.id == newItem.id
-        }
-
-        override fun areContentsTheSame(oldItem: Book, newItem: Book): Boolean {
-            return oldItem.id == newItem.id
-        }
+        holder.bindTo(books.get(position))
     }
 }
