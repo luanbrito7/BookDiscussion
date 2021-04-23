@@ -5,25 +5,26 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "books")
 data class Book (
-    @PrimaryKey
+        @PrimaryKey
     val id:String,
-    val title:String,
-    val description:String,
-    val image_url:String,
-    val author:String,
-    val reading: Boolean,
-    val read: Boolean,
-    val wantToRead: Boolean,
-    val rate: Int,
-    val liked: Boolean
+        val title:String,
+        val description:String,
+        val image_url:String,
+        val author:String,
+        val reading: Boolean,
+        val read: Boolean,
+        val wantToRead: Boolean,
+        val rate: Int,
+        var liked: Boolean
 ){
 
     override fun toString(): String {
-        return getStringAttr("id", id) +
+        return  getStringAttr("id", id) +
                 getStringAttr("title", title) +
                 getStringAttr("desc", description) +
                 getStringAttr("image_url", image_url) +
                 getStringAttr("author", author)
+
     }
 
     fun getStringAttr(label: String, value: Any) : String {
