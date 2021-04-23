@@ -1,9 +1,9 @@
-package com.example.bookdiscussion
+package com.example.bookdiscussion.view.holder
 
 import android.content.Intent
-import android.net.Uri
-import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bookdiscussion.models.Book
+import com.example.bookdiscussion.activities.BookActivity
 import com.example.bookdiscussion.databinding.BookrowBinding
 import com.squareup.picasso.Picasso
 

@@ -1,8 +1,7 @@
-package com.example.bookdiscussion
+package com.example.bookdiscussion.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
@@ -10,10 +9,10 @@ import com.example.bookdiscussion.databinding.ActivityBookBinding
 import androidx.activity.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import com.example.bookdiscussion.models.Book
+import com.example.bookdiscussion.view.model.BookViewModel
+import com.example.bookdiscussion.R
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 
 
 class  BookActivity : AppCompatActivity() {
@@ -77,7 +76,18 @@ class  BookActivity : AppCompatActivity() {
     fun addBookToShelf(id: String, title: String?, author: String?, description: String?) {
         var book: Book?
         if (title != null && author != null && description != null) {
-            book = Book(id, title, description, "", author, false, false, false, 0, false)
+            book = Book(
+                id,
+                title,
+                description,
+                "",
+                author,
+                false,
+                false,
+                false,
+                0,
+                false
+            )
             viewModel.insert(book)
         }
 

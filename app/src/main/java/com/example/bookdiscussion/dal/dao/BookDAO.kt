@@ -1,7 +1,8 @@
-package com.example.bookdiscussion
+package com.example.bookdiscussion.dal.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.bookdiscussion.models.Book
 
 @Dao
 interface BookDAO {

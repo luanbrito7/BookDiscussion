@@ -1,10 +1,12 @@
-package com.example.bookdiscussion
+package com.example.bookdiscussion.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bookdiscussion.view.model.BookViewModel
+import com.example.bookdiscussion.adapters.BookListAdapter
 import com.example.bookdiscussion.databinding.ActivityAddBookBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,7 +33,11 @@ class AddBookActivity : AppCompatActivity() {
                 recyclerViewBooks.apply {
                     layoutManager = LinearLayoutManager(applicationContext)
                     addItemDecoration(DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL))
-                    adapter = BookListAdapter(books, layoutInflater)
+                    adapter =
+                        BookListAdapter(
+                            books,
+                            layoutInflater
+                        )
                 }
             }
         }

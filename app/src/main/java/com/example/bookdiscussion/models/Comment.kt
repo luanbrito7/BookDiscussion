@@ -1,4 +1,4 @@
-package com.example.bookdiscussion
+package com.example.bookdiscussion.models
 
 data class Comment (
     val bookId: String,

@@ -1,4 +1,6 @@
-package com.example.bookdiscussion
+package com.example.bookdiscussion.dal
+
+import com.example.bookdiscussion.models.Book
 
 object Mocks {
     val books = arrayOf(
@@ -35,7 +37,7 @@ object Mocks {
             false,
             false,
             false,
-                5,
+            5,
             false
 
         )
