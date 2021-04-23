@@ -5,24 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
-    <Button
-        android:id="@+id/add_button"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="100dp"
-        android:layout_height="48dp"
-        android:text="Adicionar"
-        android:textSize="10sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/recyclerView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="410dp"
+        android:layout_height="341dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/add_button" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="258dp"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="27dp">
+
+        <Button
+            android:id="@+id/add_button"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="44dp"
+            android:text="Add a book to your shelf"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="96dp"
+            android:fontFamily="sans-serif-black"
+            android:text="My Shelf"
+            android:textSize="30sp"
+            android:typeface="monospace"
+            app:layout_constraintBottom_toTopOf="@+id/add_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
