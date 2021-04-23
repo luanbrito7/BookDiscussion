@@ -72,4 +72,14 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
             books
         }
     }
+    fun getBookById(id: String) : Any {
+        var book: Book? = null
+        viewModelScope.launch(Dispatchers.IO) {
+            book = repository.getBookById(id)
+        }
+        if (book != null) {
+            return book as Book
+        }
+        return "Eden"
+    }
 }

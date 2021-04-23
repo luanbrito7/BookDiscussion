@@ -19,4 +19,8 @@ class BookRepository(private val dao: BookDAO) {
     suspend fun destroy(book: Book) {
         dao.destroy(book)
     }
+
+    suspend fun getBookById(id: String) : Book {
+        return dao.getBookById(id)
+    }
 }

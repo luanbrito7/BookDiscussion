@@ -9,7 +9,11 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+<<<<<<< HEAD
 import com.example.bookdiscussion.booksApi.BookApi
+=======
+import androidx.recyclerview.widget.GridLayoutManager
+>>>>>>> 55f4645 (WIP)
 import com.example.bookdiscussion.databinding.ActivityMainBinding
 import kotlinx.coroutines.*
 import java.net.URL

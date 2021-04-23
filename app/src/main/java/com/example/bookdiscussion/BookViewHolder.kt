@@ -10,6 +10,7 @@ import com.squareup.picasso.Picasso
 class BookViewHolder(private val binding: BookrowBinding) :
     RecyclerView.ViewHolder(binding.root)
 {
+    var id : String = ""
     var title : String = ""
     var image_url : String = ""
     var author : String = ""
@@ -19,10 +20,12 @@ class BookViewHolder(private val binding: BookrowBinding) :
     var wantToRead : Boolean = false
     var rate : Int = 0
 
+
     init {
         binding.root.setOnClickListener {
             val c = binding.title.context
             val bookIntent = Intent(c, BookActivity::class.java)
+            bookIntent.putExtra("id", id)
             bookIntent.putExtra("title", title)
             bookIntent.putExtra("image_url", image_url)
             bookIntent.putExtra("author", author)
@@ -36,6 +39,7 @@ class BookViewHolder(private val binding: BookrowBinding) :
     }
 
     fun bindTo(book: Book) {
+        id = book.id
         title = book.title
         image_url = book.image_url
         author = book.author

@@ -11,7 +11,8 @@ object Mocks {
             false,
             false,
             false,
-            4
+            4,
+            false
         ),
         Book(
             "2",
@@ -22,7 +23,8 @@ object Mocks {
             false,
             false,
             false,
-            1
+            1,
+            false
         ),
         Book(
             "3",
@@ -33,7 +35,9 @@ object Mocks {
             false,
             false,
             false,
-            5
+                5,
+            false
+
         )
     )
 }
