@@ -3,6 +3,7 @@ package com.example.bookdiscussion
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.Dispatchers
 
 import androidx.lifecycle.ViewModel
@@ -66,20 +67,19 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
                 var authors : ArrayList<String>? = volumeInfo.get("authors") as? ArrayList<String>
                 var author = authors?.get(0)
                 if (author == null) return@forEach
-                book = Book(id as String, title as String, description as String, image_url, author, false, false, false, 1)
+                book = Book(id as String, title as String, description as String, image_url, author, false, false, false, 1, false)
                 books.add(book)
             }
             books
         }
     }
-    fun getBookById(id: String) : Any {
-        var book: Book? = null
+
+    fun getBookById(id: String) : MutableLiveData<Book> {
+        val result = MutableLiveData<Book>()
         viewModelScope.launch(Dispatchers.IO) {
-            book = repository.getBookById(id)
+            val book = repository.getBookById(id)
+            result.postValue(book)
         }
-        if (book != null) {
-            return book as Book
-        }
-        return "Eden"
+        return result
     }
 }
