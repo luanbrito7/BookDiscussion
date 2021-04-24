@@ -11,9 +11,9 @@ data class Book (
     val description:String,
     val image_url:String,
     val author:String,
-    val reading: Boolean,
-    val read: Boolean,
-    val wantToRead: Boolean,
+    var reading: Boolean,
+    var read: Boolean,
+    var wantToRead: Boolean,
     var rate: Int,
     var liked: Boolean
 ){
