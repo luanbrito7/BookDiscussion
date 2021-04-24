@@ -15,7 +15,7 @@
         android:layout_marginTop="16dp"
         android:src="@drawable/book_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,10 +24,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bookAuthor"
-        android:layout_marginTop="100dp"
-        android:text="Join Chat"
+        android:layout_marginTop="148dp"
+        android:text="See comments"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.224"
+        app:layout_constraintHorizontal_bias="0.326"
         app:layout_constraintStart_toEndOf="@+id/bookImage"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,10 +43,10 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toEndOf="@+id/bookImage"
         app:layout_constraintTop_toBottomOf="@+id/bookTitle"
-        app:layout_constraintVertical_bias="0.178" />
+        app:layout_constraintVertical_bias="0.026" />
 
     <TextView
         android:id="@+id/bookTitle"
@@ -55,13 +55,13 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="13dp"
         android:layout_marginLeft="13dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:layout_toRightOf="@+id/bookImage"
         android:includeFontPadding="false"
         android:text="O nome do livro"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.177"
+        app:layout_constraintHorizontal_bias="0.033"
         app:layout_constraintStart_toEndOf="@+id/bookImage"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,7 +69,7 @@
         android:id="@+id/scrollView2"
         android:layout_width="343dp"
         android:layout_height="189dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="112dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookImage">
@@ -109,17 +109,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/likeButton" />
 
-    <Button
-        android:id="@+id/shareButton"
-        android:layout_width="100dp"
-        android:layout_height="75dp"
-        android:layout_below="@+id/bookAuthor"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:text="Share"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/addShelfButton"
-        app:layout_constraintTop_toTopOf="@+id/addShelfButton" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group"
@@ -140,6 +129,18 @@
         app:barrierDirection="top"
         tools:layout_editor_absoluteX="126dp"
         tools:layout_editor_absoluteY="235dp" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toEndOf="@+id/bookImage"
+        app:layout_constraintTop_toBottomOf="@+id/bookAuthor" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
