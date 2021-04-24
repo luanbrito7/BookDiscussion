@@ -21,8 +21,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //viewModel.insert(Mocks.books[0]) //this line is for testing
-
         val bookAdapter =
             BookArrayAdapter(layoutInflater)
 
@@ -44,6 +42,11 @@ class MainActivity : AppCompatActivity() {
         binding.addButton.setOnClickListener {
             val addBookIntent = Intent(this@MainActivity, AddBookActivity::class.java)
             this@MainActivity.startActivity(addBookIntent)
+        }
+
+        binding.likedBooksButton.setOnClickListener {
+            val addBookIntent = Intent(this, LikedBooksActivity::class.java)
+            startActivity(addBookIntent)
         }
 
     }

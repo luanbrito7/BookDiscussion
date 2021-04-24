@@ -1,11 +1,13 @@
 package com.example.bookdiscussion.repository
 
 import androidx.annotation.WorkerThread
+import androidx.lifecycle.LiveData
 import com.example.bookdiscussion.models.Book
 import com.example.bookdiscussion.dal.dao.BookDAO
 
 class BookRepository(private val dao: BookDAO) {
     val books = dao.getAll()
+    val likedBooks = dao.getLikedBooks()
 
     @WorkerThread
     suspend fun insert(book: Book) {

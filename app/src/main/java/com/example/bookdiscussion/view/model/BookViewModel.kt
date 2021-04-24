@@ -3,6 +3,7 @@ package com.example.bookdiscussion.view.model
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.Dispatchers
 
@@ -25,6 +26,7 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
         BookApi()
 
     val books = repository.books
+    val likedBooks = repository.likedBooks
 
     fun insert(book: Book) {
         viewModelScope.launch(Dispatchers.IO) {

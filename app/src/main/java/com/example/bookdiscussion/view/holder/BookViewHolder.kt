@@ -18,7 +18,7 @@ class BookViewHolder(private val binding: BookrowBinding) :
     var read : Boolean = false
     var reading : Boolean = false
     var wantToRead : Boolean = false
-    var rate : Int = 0
+    var rate : Float = 0F
 
 
     init {
@@ -47,7 +47,7 @@ class BookViewHolder(private val binding: BookrowBinding) :
         read = book.read
         reading = book.reading
         wantToRead = book.wantToRead
-        rate = book.rate
+        rate = book.rate.toFloat()
 
         binding.title.text = title
         binding.author.text = author
