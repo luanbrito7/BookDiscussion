@@ -155,7 +155,7 @@ class  BookActivity : AppCompatActivity() {
 
     fun markBookAs(id: String, markAs: String) {
         var liveData: MutableLiveData<Book>?
-
+        lateinit var addBookIntent: Intent
         if (id != null) {
             liveData = viewModel.getBookById(id)
             liveData.observe(
@@ -167,21 +167,30 @@ class  BookActivity : AppCompatActivity() {
                         b.wantToRead = false
                         viewModel.update(b)
                         Toast.makeText(applicationContext, "Book marked as 'reading'!", LENGTH_SHORT).show()
+
+                        addBookIntent = Intent(this, ReadingActivity::class.java)
                     } else if (markAs == "READ") {
                         b.reading = false
                         b.read = true
                         b.wantToRead = false
                         viewModel.update(b)
                         Toast.makeText(applicationContext, "Book marked as 'read'!", LENGTH_SHORT).show()
+
+                        addBookIntent = Intent(this, ReadActivity::class.java)
                     } else if (markAs == "TO_READ") {
                         b.reading = false
                         b.read = false
                         b.wantToRead = true
                         viewModel.update(b)
                         Toast.makeText(applicationContext, "Book marked as 'to read'!", LENGTH_SHORT).show()
+
+                        addBookIntent = Intent(this, ToReadActivity::class.java)
                     } else {
                         Toast.makeText(applicationContext, "Something went wrong!", LENGTH_SHORT).show()
                     }
+
+                    addBookIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(addBookIntent)
                 }
             )
         }
