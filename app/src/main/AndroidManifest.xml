@@ -13,6 +13,7 @@
         android:theme="@style/Theme.BookDiscussion">
         <activity android:name=".activities.AddBookActivity"></activity>
         <activity android:name=".activities.BookActivity" />
+        <activity android:name=".activities.LikedBooksActivity" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
