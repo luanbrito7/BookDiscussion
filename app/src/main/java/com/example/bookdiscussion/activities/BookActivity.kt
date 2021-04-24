@@ -47,6 +47,7 @@ class  BookActivity : AppCompatActivity() {
         quotesButton.setOnClickListener{
             val c = binding.button.context
             val commentsIntent = Intent(c, BookComments::class.java)
+            commentsIntent.putExtra("bookId", id)
             c.startActivity(commentsIntent)
         }
 
