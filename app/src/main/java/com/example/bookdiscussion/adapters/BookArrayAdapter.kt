@@ -1,14 +1,18 @@
-package com.example.bookdiscussion
+package com.example.bookdiscussion.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.example.bookdiscussion.models.Book
+import com.example.bookdiscussion.view.holder.BookViewHolder
 import com.example.bookdiscussion.databinding.BookrowBinding
 
 class BookArrayAdapter(
     private val inflater: LayoutInflater) :
-    ListAdapter<Book, BookViewHolder>(bookDiffer)
+    ListAdapter<Book, BookViewHolder>(
+        bookDiffer
+    )
 {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {

@@ -1,8 +1,10 @@
-package com.example.bookdiscussion
+package com.example.bookdiscussion.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bookdiscussion.models.Book
+import com.example.bookdiscussion.view.holder.BookViewHolder
 import com.example.bookdiscussion.databinding.BookrowBinding
 
 class BookListAdapter (

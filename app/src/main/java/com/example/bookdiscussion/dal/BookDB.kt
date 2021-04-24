@@ -1,9 +1,11 @@
-package com.example.bookdiscussion
+package com.example.bookdiscussion.dal
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.bookdiscussion.models.Book
+import com.example.bookdiscussion.dal.dao.BookDAO
 
 @Database(entities = [Book::class], version = 1)
 abstract class BookDB : RoomDatabase() {

@@ -1,25 +1,32 @@
-package com.example.bookdiscussion
+package com.example.bookdiscussion.view.model
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.Dispatchers
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.bookdiscussion.booksApi.BookApi
+import com.example.bookdiscussion.models.Book
+import com.example.bookdiscussion.dal.BookDB
+import com.example.bookdiscussion.dal.api.BookApi
+import com.example.bookdiscussion.repository.BookRepository
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class BookViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository : BookRepository = BookRepository(
-        BookDB.getInstance(application).bookDAO()
-    )
-    private val booksApi : BookApi = BookApi()
+    private val repository : BookRepository =
+        BookRepository(
+            BookDB.getInstance(application).bookDAO()
+        )
+    private val booksApi : BookApi =
+        BookApi()
 
     val books = repository.books
+    val likedBooks = repository.likedBooks
 
     fun insert(book: Book) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -66,10 +73,30 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
                 var authors : ArrayList<String>? = volumeInfo.get("authors") as? ArrayList<String>
                 var author = authors?.get(0)
                 if (author == null) return@forEach
-                book = Book(id as String, title as String, description as String, image_url, author, false, false, false, 1)
+                book = Book(
+                    id as String,
+                    title as String,
+                    description as String,
+                    image_url,
+                    author,
+                    false,
+                    false,
+                    false,
+                    1,
+                    false
+                )
                 books.add(book)
             }
             books
         }
+    }
+
+    fun getBookById(id: String) : MutableLiveData<Book> {
+        val result = MutableLiveData<Book>()
+        viewModelScope.launch(Dispatchers.IO) {
+            val book = repository.getBookById(id)
+            result.postValue(book)
+        }
+        return result
     }
 }

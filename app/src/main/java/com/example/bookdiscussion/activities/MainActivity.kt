@@ -1,18 +1,15 @@
-package com.example.bookdiscussion
+package com.example.bookdiscussion.activities
 
-import android.R
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.example.bookdiscussion.booksApi.BookApi
+import com.example.bookdiscussion.adapters.BookArrayAdapter
+import com.example.bookdiscussion.view.model.BookViewModel
 import com.example.bookdiscussion.databinding.ActivityMainBinding
-import kotlinx.coroutines.*
-import java.net.URL
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,9 +21,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //viewModel.insert(Mocks.books[0]) //this line is for testing
-
-        val bookAdapter = BookArrayAdapter(layoutInflater)
+        val bookAdapter =
+            BookArrayAdapter(layoutInflater)
 
         val recyclerViewBooks = binding.recyclerView
 
@@ -46,6 +42,11 @@ class MainActivity : AppCompatActivity() {
         binding.addButton.setOnClickListener {
             val addBookIntent = Intent(this@MainActivity, AddBookActivity::class.java)
             this@MainActivity.startActivity(addBookIntent)
+        }
+
+        binding.likedBooksButton.setOnClickListener {
+            val addBookIntent = Intent(this, LikedBooksActivity::class.java)
+            startActivity(addBookIntent)
         }
 
     }

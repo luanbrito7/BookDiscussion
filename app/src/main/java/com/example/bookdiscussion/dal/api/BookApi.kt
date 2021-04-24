@@ -1,7 +1,5 @@
-package com.example.bookdiscussion.booksApi
+package com.example.bookdiscussion.dal.api
 
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import java.net.URL
 
 class BookApi (
