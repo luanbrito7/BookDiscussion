@@ -1,5 +1,6 @@
 package com.example.bookdiscussion.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -41,6 +42,13 @@ class  BookActivity : AppCompatActivity() {
         binding.bookAuthor.text = author
         binding.bookDescription.text = description
         binding.ratingBar.rating = rate
+
+        val quotesButton: Button = findViewById(R.id.button)
+        quotesButton.setOnClickListener{
+            val c = binding.button.context
+            val commentsIntent = Intent(c, BookComments::class.java)
+            c.startActivity(commentsIntent)
+        }
 
         val likeButton: Button = findViewById(R.id.likeButton)
         likeButton.setOnClickListener {
