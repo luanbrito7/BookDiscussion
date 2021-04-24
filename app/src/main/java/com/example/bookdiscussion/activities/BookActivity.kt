@@ -43,19 +43,41 @@ class  BookActivity : AppCompatActivity() {
         binding.bookDescription.text = description
         binding.ratingBar.rating = rate
 
-        val likeButton: Button = findViewById(R.id.likeButton)
+        val likeButton: Button = binding.likeButton
         likeButton.setOnClickListener {
             if (id != null) {
                 likeBook(id)
             }
         }
 
-        val shelfButton: Button = findViewById(R.id.addShelfButton)
+        val shelfButton: Button = binding.addShelfButton
         shelfButton.setOnClickListener {
             if (id != null) {
                 addBookToShelf(id, title, author, description)
             }
         }
+
+        val toReadButton: Button = binding.toReadButton
+        toReadButton.setOnClickListener {
+            if (id != null) {
+                markBookAs(id, "TO_READ")
+            }
+        }
+
+        val readButton: Button = binding.readButton
+        readButton.setOnClickListener {
+            if (id != null) {
+                markBookAs(id, "READ")
+            }
+        }
+
+        val readingButton: Button = binding.readingButton
+        readingButton.setOnClickListener {
+            if (id != null) {
+                markBookAs(id, "READING")
+            }
+        }
+
 
         val ratingBar: RatingBar = findViewById(R.id.ratingBar)
         ratingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
@@ -129,5 +151,39 @@ class  BookActivity : AppCompatActivity() {
         val addBookIntent = Intent(this, MainActivity::class.java)
         addBookIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(addBookIntent)
+    }
+
+    fun markBookAs(id: String, markAs: String) {
+        var liveData: MutableLiveData<Book>?
+
+        if (id != null) {
+            liveData = viewModel.getBookById(id)
+            liveData.observe(
+                this,
+                Observer { b ->
+                    if (markAs == "READING") {
+                        b.reading = true
+                        b.read = false
+                        b.wantToRead = false
+                        viewModel.update(b)
+                        Toast.makeText(applicationContext, "Book marked as 'reading'!", LENGTH_SHORT).show()
+                    } else if (markAs == "READ") {
+                        b.reading = false
+                        b.read = true
+                        b.wantToRead = false
+                        viewModel.update(b)
+                        Toast.makeText(applicationContext, "Book marked as 'read'!", LENGTH_SHORT).show()
+                    } else if (markAs == "TO_READ") {
+                        b.reading = false
+                        b.read = false
+                        b.wantToRead = true
+                        viewModel.update(b)
+                        Toast.makeText(applicationContext, "Book marked as 'to read'!", LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(applicationContext, "Something went wrong!", LENGTH_SHORT).show()
+                    }
+                }
+            )
+        }
     }
 }

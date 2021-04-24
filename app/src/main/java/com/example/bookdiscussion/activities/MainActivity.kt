@@ -49,5 +49,21 @@ class MainActivity : AppCompatActivity() {
             startActivity(addBookIntent)
         }
 
+        binding.readButton.setOnClickListener {
+            val addBookIntent = Intent(this@MainActivity, ReadActivity::class.java)
+            this@MainActivity.startActivity(addBookIntent)
+        }
+
+        binding.readingButton.setOnClickListener {
+            val addBookIntent = Intent(this@MainActivity, ReadingActivity::class.java)
+            this@MainActivity.startActivity(addBookIntent)
+        }
+
+        binding.toReadButton.setOnClickListener {
+            val addBookIntent = Intent(this@MainActivity, ToReadActivity::class.java)
+            this@MainActivity.startActivity(addBookIntent)
+        }
+
+
     }
 }
