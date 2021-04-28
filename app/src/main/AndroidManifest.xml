@@ -16,6 +16,9 @@
         <activity android:name=".activities.AddBookActivity" />
         <activity android:name=".activities.BookActivity" />
         <activity android:name=".activities.LikedBooksActivity" />
+        <activity android:name=".activities.ReadingActivity" />
+        <activity android:name=".activities.ToReadActivity" />
+        <activity android:name=".activities.ReadActivity" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

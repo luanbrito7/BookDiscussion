@@ -8,6 +8,9 @@ import com.example.bookdiscussion.dal.dao.BookDAO
 class BookRepository(private val dao: BookDAO) {
     val books = dao.getAll()
     val likedBooks = dao.getLikedBooks()
+    val toReadBooks = dao.getToReadBooks()
+    val readingBooks = dao.getReadingBooks()
+    val readBooks = dao.getReadBooks()
 
     @WorkerThread
     suspend fun insert(book: Book) {

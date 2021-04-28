@@ -34,6 +34,9 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
     val books = repository.books
     val quotes : MutableLiveData<List<Comment>> = MutableLiveData<List<Comment>>()
     val likedBooks = repository.likedBooks
+    val readBooks = repository.readBooks
+    val readingBooks = repository.readingBooks
+    val toReadBooks = repository.toReadBooks
 
     fun insert(book: Book) {
         viewModelScope.launch(Dispatchers.IO) {
