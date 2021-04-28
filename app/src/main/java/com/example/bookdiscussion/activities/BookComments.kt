@@ -49,7 +49,6 @@ class BookComments : AppCompatActivity() {
             this,
             Observer { qts ->
                 quotes = qts as MutableList<Comment>
-                Log.d("livedata", quotes.toString())
                 updateRecycler()
             }
         )
@@ -57,6 +56,8 @@ class BookComments : AppCompatActivity() {
         binding.addCommentButton.setOnClickListener {
             var quote = Comment(bookId.toString(), binding.commentText.text.toString())
             quotes = viewModel.commentBook(quote, quotes)
+            binding.commentText.text.clear()
+            updateRecycler()
         }
     }
 }

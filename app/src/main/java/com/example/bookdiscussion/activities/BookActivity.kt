@@ -104,7 +104,6 @@ class  BookActivity : AppCompatActivity() {
                         } else {
                             Toast.makeText(applicationContext, "You must add to your shelf before rating", LENGTH_LONG).show()
                         }
-
                     }
                 )
             }
