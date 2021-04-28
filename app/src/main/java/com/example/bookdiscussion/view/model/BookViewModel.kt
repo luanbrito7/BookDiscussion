@@ -5,17 +5,21 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import kotlinx.coroutines.Dispatchers
-
 import androidx.lifecycle.viewModelScope
-import com.example.bookdiscussion.models.Book
 import com.example.bookdiscussion.dal.BookDB
 import com.example.bookdiscussion.dal.api.BookApi
+import com.example.bookdiscussion.models.Book
+import com.example.bookdiscussion.models.Comment
 import com.example.bookdiscussion.repository.BookRepository
+import com.google.android.gms.tasks.Task
+import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+
 
 class BookViewModel(application: Application) : AndroidViewModel(application) {
     private val repository : BookRepository =
@@ -25,7 +29,10 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
     private val booksApi : BookApi =
         BookApi()
 
+    var firebaseDatabase: FirebaseDatabase? = null
+
     val books = repository.books
+    val quotes : MutableLiveData<List<Comment>> = MutableLiveData<List<Comment>>()
     val likedBooks = repository.likedBooks
     val readBooks = repository.readBooks
     val readingBooks = repository.readingBooks
@@ -101,5 +108,43 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
             result.postValue(book)
         }
         return result
+    }
+
+    fun getComments(id: String) {
+        var comment : Comment
+        if (firebaseDatabase == null) {
+            instanceFirebase()
+        }
+        var quotesRef : DatabaseReference = firebaseDatabase!!.getReference("quotes")
+        quotesRef.child(id).get().addOnSuccessListener {
+            var comments : MutableList<Comment> = mutableListOf<Comment>()
+            if (it.value != null) {
+                var res : ArrayList<Map<String, String>> = it.value as ArrayList<Map<String, String>>
+                res.forEach {
+                    var body : String? = it.get("body")
+                    var bookId : String? = it.get("bookId")
+                    if (body == null || bookId == null) {
+                        return@forEach
+                    }
+                    comment = Comment(bookId, body)
+                    comments.add(comment)
+                }
+                quotes.postValue(comments)
+            }
+        }
+    }
+
+    fun commentBook(quote: Comment, quotes: MutableList<Comment>) : MutableList<Comment> {
+        if (firebaseDatabase == null) {
+            instanceFirebase()
+        }
+        var quotesRef : DatabaseReference = firebaseDatabase!!.getReference("quotes")
+        quotes.add(quote)
+        quotesRef.child(quote.bookId).setValue(quotes)
+        return quotes
+    }
+
+    fun instanceFirebase() {
+        firebaseDatabase = FirebaseDatabase.getInstance()
     }
 }

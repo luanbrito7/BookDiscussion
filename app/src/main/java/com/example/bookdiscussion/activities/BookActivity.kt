@@ -43,6 +43,14 @@ class  BookActivity : AppCompatActivity() {
         binding.bookDescription.text = description
         binding.ratingBar.rating = rate
 
+        val quotesButton: Button = binding.button
+        quotesButton.setOnClickListener{
+            val c = binding.button.context
+            val commentsIntent = Intent(c, BookComments::class.java)
+            commentsIntent.putExtra("bookId", id)
+            c.startActivity(commentsIntent)
+        }
+
         val likeButton: Button = binding.likeButton
         likeButton.setOnClickListener {
             if (id != null) {
@@ -96,7 +104,6 @@ class  BookActivity : AppCompatActivity() {
                         } else {
                             Toast.makeText(applicationContext, "You must add to your shelf before rating", LENGTH_LONG).show()
                         }
-
                     }
                 )
             }
