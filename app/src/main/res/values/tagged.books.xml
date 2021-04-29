@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="favoriteBooksTitle">My Favorite Books</string>
+    <string name="readBooksTitle">Books I Read</string>
+    <string name="readingBooksTitle">Books Im reading</string>
+    <string name="wantToReadBooksTitle">Books I want to read</string>
+</resources>
