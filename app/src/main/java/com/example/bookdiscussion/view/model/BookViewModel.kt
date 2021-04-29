@@ -27,7 +27,7 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
             BookDB.getInstance(application).bookDAO()
         )
     private val booksApi : BookApi =
-        BookApi()
+        BookApi(application.applicationContext)
 
     var firebaseDatabase: FirebaseDatabase? = null
 
