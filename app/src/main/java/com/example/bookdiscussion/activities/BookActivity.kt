@@ -3,7 +3,6 @@ package com.example.bookdiscussion.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.RatingBar
 import android.widget.Toast
@@ -46,7 +45,7 @@ class  BookActivity : AppCompatActivity() {
         val quotesButton: Button = binding.button
         quotesButton.setOnClickListener{
             val c = binding.button.context
-            val commentsIntent = Intent(c, BookComments::class.java)
+            val commentsIntent = Intent(c, BookCommentsActivity::class.java)
             commentsIntent.putExtra("bookId", id)
             c.startActivity(commentsIntent)
         }
