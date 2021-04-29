@@ -168,36 +168,40 @@ class  BookActivity : AppCompatActivity() {
             liveData.observe(
                 this,
                 Observer { b ->
-                    if (markAs == "READING") {
-                        b.reading = true
-                        b.read = false
-                        b.wantToRead = false
-                        viewModel.update(b)
-                        Toast.makeText(applicationContext, "Book marked as 'reading'!", LENGTH_SHORT).show()
-
-                        addBookIntent = Intent(this, ReadingActivity::class.java)
-                    } else if (markAs == "READ") {
-                        b.reading = false
-                        b.read = true
-                        b.wantToRead = false
-                        viewModel.update(b)
-                        Toast.makeText(applicationContext, "Book marked as 'read'!", LENGTH_SHORT).show()
-
-                        addBookIntent = Intent(this, ReadActivity::class.java)
-                    } else if (markAs == "TO_READ") {
-                        b.reading = false
-                        b.read = false
-                        b.wantToRead = true
-                        viewModel.update(b)
-                        Toast.makeText(applicationContext, "Book marked as 'to read'!", LENGTH_SHORT).show()
-
-                        addBookIntent = Intent(this, ToReadActivity::class.java)
+                    if (b == null) {
+                        Toast.makeText(applicationContext, "Add book to your shelf first!", LENGTH_LONG).show()
                     } else {
-                        Toast.makeText(applicationContext, "Something went wrong!", LENGTH_SHORT).show()
-                    }
+                        if (markAs == "READING") {
+                            b.reading = true
+                            b.read = false
+                            b.wantToRead = false
+                            viewModel.update(b)
+                            Toast.makeText(applicationContext, "Book marked as 'reading'!", LENGTH_SHORT).show()
 
-                    addBookIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(addBookIntent)
+                            addBookIntent = Intent(this, ReadingActivity::class.java)
+                        } else if (markAs == "READ") {
+                            b.reading = false
+                            b.read = true
+                            b.wantToRead = false
+                            viewModel.update(b)
+                            Toast.makeText(applicationContext, "Book marked as 'read'!", LENGTH_SHORT).show()
+
+                            addBookIntent = Intent(this, ReadActivity::class.java)
+                        } else if (markAs == "TO_READ") {
+                            b.reading = false
+                            b.read = false
+                            b.wantToRead = true
+                            viewModel.update(b)
+                            Toast.makeText(applicationContext, "Book marked as 'to read'!", LENGTH_SHORT).show()
+
+                            addBookIntent = Intent(this, ToReadActivity::class.java)
+                        } else {
+                            Toast.makeText(applicationContext, "Something went wrong!", LENGTH_SHORT).show()
+                        }
+
+                        addBookIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(addBookIntent)
+                    }
                 }
             )
         }
