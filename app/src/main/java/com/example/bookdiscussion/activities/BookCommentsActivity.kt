@@ -18,7 +18,7 @@ import com.example.bookdiscussion.models.Book
 import com.example.bookdiscussion.models.Comment
 import com.example.bookdiscussion.view.model.BookViewModel
 
-class BookComments : AppCompatActivity() {
+class BookCommentsActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityBookCommentsBinding
     private val viewModel : BookViewModel by viewModels()

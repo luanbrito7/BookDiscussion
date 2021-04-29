@@ -1,196 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.BookActivity">
-
-
-    <ImageView
-        android:id="@+id/bookImage"
-        android:layout_width="124dp"
-        android:layout_height="129dp"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/book_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bookAuthor"
-        android:layout_marginTop="148dp"
-        android:text="See comments"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.326"
-        app:layout_constraintStart_toEndOf="@+id/bookImage"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/bookAuthor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bookTitle"
-        android:layout_marginTop="12dp"
-        android:layout_toRightOf="@+id/bookImage"
-        android:includeFontPadding="false"
-        android:text="Autor do Livro"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
-        app:layout_constraintStart_toEndOf="@+id/bookImage"
-        app:layout_constraintTop_toBottomOf="@+id/bookTitle"
-        app:layout_constraintVertical_bias="0.026" />
-
-    <TextView
-        android:id="@+id/bookTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="13dp"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="24dp"
-        android:layout_toRightOf="@+id/bookImage"
-        android:includeFontPadding="false"
-        android:text="O nome do livro"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.033"
-        app:layout_constraintStart_toEndOf="@+id/bookImage"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="343dp"
-        android:layout_height="189dp"
-        android:layout_marginTop="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookImage">
-
-        <TextView
-            android:id="@+id/bookDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:includeFontPadding="false"
-            android:text="Sinopse"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="40dp"
-            tools:layout_editor_absoluteY="271dp" />
-
-    </ScrollView>
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="bookTitle,button,bookImage,bookAuthor" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="top"
-        tools:layout_editor_absoluteX="99dp"
-        tools:layout_editor_absoluteY="219dp" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="top"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="235dp" />
-
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:numStars="5"
-        android:stepSize="1"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
-        app:layout_constraintStart_toEndOf="@+id/bookImage"
-        app:layout_constraintTop_toBottomOf="@+id/bookAuthor" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="216dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-        app:layout_constraintVertical_bias="0.0">
-
-        <Button
-            android:id="@+id/addShelfButton"
-            android:layout_width="100dp"
-            android:layout_height="75dp"
-            android:layout_below="@+id/bookAuthor"
-            android:text="Shelf"
-            app:layout_constraintBottom_toTopOf="@+id/readingButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/likeButton"
-            app:layout_constraintTop_toTopOf="@+id/likeButton"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/likeButton"
-            android:layout_width="100dp"
-            android:layout_height="75dp"
-            android:layout_below="@+id/bookAuthor"
-            android:layout_marginStart="56dp"
-            android:layout_marginLeft="56dp"
-            android:layout_marginTop="16dp"
-            android:text="Like"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/readingButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:text="Reading"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/likeButton"
-            app:layout_constraintVertical_bias="0.324" />
-
-        <Button
-            android:id="@+id/readButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:text="Read"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/readingButton"
-            app:layout_constraintTop_toTopOf="@+id/readingButton"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/toReadButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="To Read"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/readButton"
-            app:layout_constraintTop_toTopOf="@+id/readingButton"
-            app:layout_constraintVertical_bias="0.0" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:layout_width="match_parent" android:orientation="vertical" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:orientation="horizontal" android:layout_margin="16dp" android:layout_height="wrap_content">
+            <ImageView android:id="@+id/bookImage" android:layout_width="124dp" android:layout_height="129dp" android:layout_centerVertical="true" android:src="@drawable/book_icon"/>
+            <LinearLayout android:layout_width="match_parent" android:orientation="vertical" android:layout_marginLeft="16dp" android:layout_height="wrap_content">
+                <TextView android:id="@+id/bookTitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="left" android:includeFontPadding="false" android:text="O nome do livro" android:maxLines="1" android:textSize="20sp"/>
+                <TextView android:id="@+id/bookAuthor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:includeFontPadding="false" android:text="Autor do Livro" android:textSize="14sp"/>
+                <HorizontalScrollView android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <RatingBar android:id="@+id/ratingBar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:numStars="5" android:stepSize="1"/>
+                </HorizontalScrollView>
+                <Button android:id="@+id/button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="See comments"/>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView android:id="@+id/bookDescription" android:layout_width="match_parent" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_margin="16dp" android:text="Sinopse" android:textSize="20sp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="16dp" android:layout_marginBottom="16dp">
+            <LinearLayout android:layout_width="match_parent" android:orientation="horizontal" android:layout_marginBottom="20dp" android:layout_height="wrap_content">
+                <Space android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1"/>
+                <Button android:id="@+id/likeButton" android:layout_width="100dp" android:layout_height="75dp" android:layout_below="@+id/bookAuthor" android:text="Like"/>
+                <Space android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1"/>
+                <Button android:id="@+id/addShelfButton" android:layout_width="100dp" android:layout_height="75dp" android:layout_below="@+id/bookAuthor" android:text="Shelf"/>
+                <Space android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:orientation="horizontal" android:layout_height="wrap_content">
+                <Space android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1"/>
+                <Button android:id="@+id/readingButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Reading"/>
+                <Space android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1"/>
+                <Button android:id="@+id/readButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Read"/>
+                <Space android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1"/>
+                <Button android:id="@+id/toReadButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="To Read"/>
+                <Space android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
