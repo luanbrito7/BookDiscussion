@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bookCommentsButton">See quotes</string>
+    <string name="bookLikeButton">Like</string>
+    <string name="bookShelfButton">Shelf</string>
+    <string name="bookReadingButton">READING</string>
+    <string name="bookReadButton">READ</string>
+    <string name="bookToReadButton">TO READ</string>
+</resources>
