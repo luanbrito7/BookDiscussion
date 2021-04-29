@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mainShelfHeader">My Shelf</string>
+    <string name="mainSearchButton">add a book to shelf</string>
+    <string name="mainLikedButton">my liked books</string>
+    <string name="mainReadButton">read</string>
+    <string name="mainReadingButton">reading</string>
+    <string name="mainToReadButton">to read</string>
+</resources>

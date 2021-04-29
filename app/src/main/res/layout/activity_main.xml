@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
-    <TextView android:id="@+id/textView" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="20dp" android:fontFamily="sans-serif-black" android:text="My Shelf" android:gravity="center" android:textSize="30sp" android:typeface="monospace"/>
+    <TextView android:id="@+id/textView" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="20dp" android:fontFamily="sans-serif-black" android:text="@string/mainShelfHeader" android:gravity="center" android:textSize="30sp" android:typeface="monospace"/>
     <LinearLayout android:layout_width="match_parent" android:orientation="horizontal" android:layout_marginBottom="20dp" android:layout_height="wrap_content">
         <Space android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1"/>
-        <Button android:id="@+id/add_button" style="@style/Widget.AppCompat.Button.Borderless" android:layout_width="100dp" android:layout_height="wrap_content" android:text="Add a book to shelf" android:textSize="10sp"/>
+        <Button android:id="@+id/add_button" style="@style/Widget.AppCompat.Button.Borderless" android:layout_width="100dp" android:layout_height="wrap_content" android:text="@string/mainSearchButton" android:textSize="10sp"/>
         <Space android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1"/>
-        <Button android:id="@+id/liked_books_button" android:layout_width="100dp" android:layout_height="wrap_content" android:text="My Liked books" android:textSize="10sp"/>
+        <Button android:id="@+id/liked_books_button" android:layout_width="100dp" android:layout_height="wrap_content" android:text="@string/mainLikedButton" android:textSize="10sp"/>
         <Space android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1"/>
     </LinearLayout>
     <LinearLayout android:layout_width="match_parent" android:orientation="horizontal" android:layout_marginBottom="20dp" android:layout_height="wrap_content">
         <Space android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1"/>
-        <Button android:id="@+id/readButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="read"/>
+        <Button android:id="@+id/readButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mainReadButton"/>
         <Space android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1"/>
-        <Button android:id="@+id/readingButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="reading"/>
+        <Button android:id="@+id/readingButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mainReadingButton"/>
         <Space android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1"/>
-        <Button android:id="@+id/toReadButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="to read"/>
+        <Button android:id="@+id/toReadButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mainToReadButton"/>
         <Space android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1"/>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerView" android:layout_width="match_parent" android:layout_height="match_parent"/>
