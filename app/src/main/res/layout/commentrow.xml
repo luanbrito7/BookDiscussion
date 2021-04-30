@@ -21,7 +21,7 @@ cardview:cardCornerRadius="5dp">
             android:id="@+id/body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="quote"
+            android:text="@string/quotes"
             android:textSize="15sp" />
     </LinearLayout>
 </LinearLayout>
