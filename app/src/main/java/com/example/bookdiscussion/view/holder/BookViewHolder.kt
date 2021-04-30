@@ -55,7 +55,7 @@ class BookViewHolder(private val binding: BookrowBinding) :
             if (image_url[4] != 's') {
                 image_url = image_url.replace("http", "https")
             }
-            Picasso.get().load(image_url).resize(100,300).into(binding.image);
+            Picasso.get().load(image_url).resize(100,200).into(binding.image);
         }
     }
 }
